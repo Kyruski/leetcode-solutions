@@ -1,0 +1,11 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+const factorial = (x) => x > 0 ? x + factorial(x - 1) : x;
+
+var numIdenticalPairs = function(nums) {
+  const array = [];
+  nums.forEach((num, i) => {array[num] ? array[num].push(i) : array[num] = [i]});
+  return array.reduce((total, curr) => total += factorial(curr.length - 1), 0)
+};
