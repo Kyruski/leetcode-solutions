@@ -8,26 +8,34 @@
  * @return {number[]}
  */
 
-const rotateMatrix = (matrix) => {
-  const newMatrix = [];
-  for (let i = matrix[0].length - 1; i >= 0; i--) {
-    let arr = [];
-    for (let k = 1; k < matrix.length; k++) {
-      arr.push(matrix[k][i]);
-    }
-    newMatrix.push(arr);
-  }
-  return newMatrix;
-}
 
 var spiralOrder = function(matrix) {
-  let currentMatrix = matrix;
   const returnArr = [];
-  while (currentMatrix.length) {
-    for (let item of currentMatrix[0]) {
-      returnArr.push(item);
+  let x = 0;
+  let y = 0;
+  let xStart = 0;
+  let yStart = 0;
+  let xEnd = matrix[0].length - 1;
+  let yEnd = matrix.length - 1;
+  while (xStart < xEnd && yStart < yEnd) {
+    for (x; x < xEnd; x++) {
+      returnArr.push(matrix[y][x]);
     }
-    currentMatrix = rotateMatrix(currentMatrix);
+    xEnd--;
+    for (y; y < yEnd; y++) {
+      returnArr.push(matrix[y][x]);
+    }
+    yEnd--;
+    for (x; x >= xStart; x--) {
+      returnArr.push(matrix[y][x]);
+      console.log('x', x, y)
+    }
+    xStart++;
+    console.log(x, y);
+    for (y; y >= yStart; y--) {
+      returnArr.push(matrix[y][x]);
+    }
+    yStart++;
   }
   return returnArr;
 };
