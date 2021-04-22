@@ -32,7 +32,6 @@ var uniquePathsIII = function(grid) {
       } else if ((grid[currRow][currCol] === 1 && newStart === 0) || grid[currRow][currCol] === -1) {
         return;
       } else {
-        let temp = grid[currRow][currCol];
         if (newStart === 0){
           grid[currRow][currCol] = -1;
         }
@@ -40,7 +39,7 @@ var uniquePathsIII = function(grid) {
         traverseGrid(currRow, currCol + 1, 0); //move right
         traverseGrid(currRow + 1, currCol, 0); //move down
         traverseGrid(currRow, currCol - 1, 0); //move left
-        grid[currRow][currCol] = temp;
+        grid[currRow][currCol] = 0;
       }
       return;
     } else {
