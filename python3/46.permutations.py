@@ -22,3 +22,8 @@ class Solution:
 
         runPermutations()
         return output
+
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        return (list[i] of i in permutations(nums))
