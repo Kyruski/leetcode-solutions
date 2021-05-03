@@ -11,5 +11,19 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-  
+  let same = true;
+  const traverse = (left, right) => {
+    if (left === right) {
+      return;
+    } else if (left === null || right === null || left.val !== right.val) {
+      same = false;
+      return;
+    }
+    traverse(left.left, right.right);
+    traverse(left.right, right.left);
+  }
+
+  traverse(root.left, root.right);
+
+  return same;
 };
