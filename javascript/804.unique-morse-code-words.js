@@ -13,5 +13,5 @@ var uniqueMorseRepresentations = function(words) {
     output.push(str);
   }
 
-  return Array.from(new Set(output)).length;
+  return new Set(output).length;
 };
