@@ -12,4 +12,18 @@
  * @return {number[]}
  */
 var getAllElements = function(root1, root2) {
+  const output = [];
+
+  const traverse = (node) => {
+    if (node === null) return;
+    traverse(node.left);
+    output.push(node.val);
+    traverse(node.right);
+    return
+  }
+
+  traverse(root1)
+  traverse(root2);
+
+  return output.sort((a, b) => a - b);
 };
