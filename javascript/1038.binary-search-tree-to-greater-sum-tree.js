@@ -11,5 +11,16 @@
  * @return {TreeNode}
  */
 var bstToGst = function(root) {
-  
+  let total = 0;
+  const traverse = (node) => {
+    if (node === null) return;
+    traverse(node.right);
+    total += node.val;
+    node.val = total;
+    traverse(node.left);
+  }
+
+  traverse(root);
+
+  return root;
 };
