@@ -12,4 +12,21 @@
  * @return {TreeNode}
  */
 var searchBST = function(root, val) {
+  let output = null;
+
+  const traverse = (node) => {
+    if (node === null) return;
+    if (node.val === val) {
+      output = node;
+      return;
+    } else if ( node.val > val ) {
+      traverse(node.left)
+    } else {
+      traverse(node.right)
+    }
+  }
+
+  traverse(root);
+
+  return output;
 };
