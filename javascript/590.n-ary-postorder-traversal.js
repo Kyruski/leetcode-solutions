@@ -11,5 +11,14 @@
  * @return {number[]}
  */
 var postorder = function(root) {
-  
+  const output = [];
+  const traverse = node => {
+    if (node === null) return;
+    for (let item of node.children) {
+      traverse(item)
+    }
+    output.push(node.val)
+  }
+  traverse(root);
+  return output;
 };
